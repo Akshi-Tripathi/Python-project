@@ -1,0 +1,45 @@
+pygame.K_ESCAPE:
+pos, ccell, up, right, bottom, left = reset_cells() fillcount, pl_score, p2_score = reset_score() turn, players, player, next_turn = reset_player()
+if not gameover:
+if event.key == pygame.K_UP:
+up = True
+if event.key
+right = True
+if event.key
+==
+pygame.K_RIGHT:
+pygame.K_DOWN:
+==
+bottom = True
+if event.key == pygame.K_LEFT:
+left = True
+if event.type == pygame.KEYUP:
+if event.key
+==
+up = False
+pygame.K_UP:
+p2img = font.render(f'Player 2: {p2_score}', True, BLUE) p2rect = p2img.get_rect()
+p2rect.right, p2rect.y = WIDTH-2*PADDING, 15
+win.blit (plimg, p1rect)
+win.blit(p2img, p2rect) if player == 'X':
+else:
+pygame.draw.line(win, BLUE, (p1rect.x, p1rect.bottom+2),
+pygame.draw.line (win, BLUE, (p2rect.x, p2rect.bottom+2),
+if gameover:
+rect =
+(p1rect.right, p1rect.bottom+2), 1)
+(p2rect.right, p2rect.bottom+2), 1)
+pygame.Rect((50, 100, WIDTH-100, HEIGHT-200))
+pygame.draw.rect(win, BLACK, rect)
+pygame.draw.rect(win, RED, rect, 2)
+over = font.render('Game Over', True, WHITE)
+win.blit (over, (rect.centerx-over.get_width()/2, rect.y + 10))
+winner = '1' if p1_score > p2_score else '2'
+winner_img = font.render(f'Player {winner} Won', True, GREEN)
+win.blit(winner_img, (rect.centerx-winner_img.get_width()/2, rect.centery- 10))
+msg = 'Press r:restart, q:quit'
+msgimg = font.render(msg, True, RED)
+win.blit(msgimg, (rect.centerx-msgimg.get_width()/2, rect.centery + 20))
+pygame.draw.rect(win, WHITE, (0,0,WIDTH, HEIGHT), 2, border_radius=10)
+pygame.display.update()
+pygame.quit(
